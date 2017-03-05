@@ -1,0 +1,86 @@
+<ion-view view-title="Dashboard">
+  <ion-content class="padding">
+
+<div class="row" style="background-color: #ddd; border: 1px solid #ddd">
+  <div class="col">Name</div>
+  <div class="col">Mobile</div>
+  <div class="col" >Email</div>
+</div>
+<div class="row" ng-repeat="e in empDetails track by $index" style="border: 1px solid #ddd" ng-click="delUpdate(e)">
+  <div class="col">{{e.name}}</div>
+  <div class="col">{{e.mobile}}</div>
+  <div class="col">{{e.email}}</div>
+</div>
+<button class="button button-block button-positive" ng-click="openAdd()">
+  Add Emp
+</button>
+  </ion-content>
+  <script id="addPopup.html" type="text/ng-template">
+      <div class="list">
+    <label class="item item-input item-stacked-label">
+    <span class="input-label"> ID</span>
+    <input type="text" placeholder="John" ng-model="emp.id">
+  </label>
+  <label class="item item-input item-stacked-label">
+    <span class="input-label"> Name</span>
+    <input type="text" placeholder="John" ng-model="emp.name">
+  </label>
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">Mobile Number</span>
+    <input type="number" placeholder="9930057558" ng-model="emp.mobile">
+  </label>
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">Email</span>
+    <input type="email" placeholder="john@suhr.com" ng-model="emp.email">
+  </label>
+</div>
+<button class="button button-block button-balanced" ng-click="addEmp(emp)">
+  ADD
+</button>
+<button class="button button-block button-assertive" ng-click="closePopup()">
+  Cancel
+</button>
+</script>
+
+<!-- popup Confitrm update  delete -->
+<script id="addPopup2.html" type="text/ng-template">
+
+<button class="button button-block button-assertive" ng-click="del()">
+  delete
+</button>
+<button class="button button-block button-balanced" ng-click="edit()">
+  edit
+</button>
+</script>
+<!-- ******************************-->
+<script id="addPopup3.html" type="text/ng-template">
+      <div class="list">
+    <label class="item item-input item-stacked-label">
+    <span class="input-label"> ID</span>
+    <input type="text" placeholder="John" ng-model="empUpdate.id">
+  </label>
+  <label class="item item-input item-stacked-label">
+    <span class="input-label"> Name</span>
+    <input type="text" placeholder="John" ng-model="empUpdate.name">
+  </label>
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">Mobile Number</span>
+    <input type="number" placeholder="9930057558" ng-model="empUpdate.mobile">
+  </label>
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">Email</span>
+    <input type="email" placeholder="john@suhr.com" ng-model="empUpdate.email">
+  </label>
+</div>
+<button class="button button-block button-balanced" ng-click="updateEmp(empUpdate)">
+  Update
+</button>
+<button class="button button-block button-assertive" ng-click="closePopup3()">
+  Cancel
+</button>
+</script>
+
+
+
+
+ </ion-view>

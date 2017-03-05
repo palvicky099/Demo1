@@ -1,0 +1,12 @@
+<ion-view view-title="Account">
+  <ion-content>
+   <button class="button button-block button-balanced" ng-click="toggle()">
+  Flash Light Toggle
+</button>
+  <button class="button button-block button-balanced" ng-click="pick()">
+Pick Image</button>
+    <img class="full-image" src="img/ionic.png" ng-if="!img">
+    <img class="full-image" src="{{img}}" ng-if="img">
+    
+  </ion-content>
+</ion-view>
