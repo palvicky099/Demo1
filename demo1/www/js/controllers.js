@@ -4,15 +4,15 @@ angular.module('starter.controllers', [])
 $scope.empDetails = [
 {
   "id":"1",
-  "name":"Aishwarya Naik",
-  "mobile":1234567890,
-  "email":"a@a.com"
+  "pName":"TV",
+  "pPrice":"20000",
+  "pDept":"IT"
 },
 {
   "id":"2",
-  "name":"Twinkle Yadav",
-  "mobile":1234567890,
-  "email":"t@t.com"
+   "pName":"Radio",
+  "pPrice":"30000",
+  "pDept":"IT"
 }
 ];
   $scope.openAdd = function () {
@@ -26,7 +26,7 @@ $scope.empDetails = [
     }
     $scope.addEmp = function(emp){
       if(emp){
-        if(emp.id == undefined || emp.id == ''  || emp.name == undefined || emp.name == ''  || emp.mobile == undefined || emp.mobile == ''  || emp.email == undefined || emp.email == '')
+        if(emp.id == undefined || emp.id == ''  || emp.pName == undefined || emp.pName == ''  || emp.pPrice == undefined || emp.pPrice == ''  || emp.pDept == undefined || emp.pDept == '')
         {
           alert("Please specify all details!!!");
         }
@@ -36,11 +36,10 @@ $scope.empDetails = [
           $scope.popup.close();
         }
       }
-      else{
         alert("Please enter the all details");
       }
   
-    }
+    
     $scope.closePopup = function(){
      // $scope.popup.splice(chats.indexOf(chat), 1)
            $scope.popup.close();
@@ -72,7 +71,7 @@ $scope.updateEmp = function(empUpdate){
     $scope.empDetails.splice($scope.empDetails.indexOf(empUpdate), 1);
 
       if(empUpdate){
-        if(empUpdate.id == undefined || empUpdate.id == ''  || empUpdate.name == undefined || empUpdate.name == ''  || empUpdate.mobile == undefined || empUpdate.mobile == ''  || empUpdate.email == undefined || empUpdate.email == '')
+        if(empUpdate.id == undefined || empUpdate.id == ''  || empUpdate.pName == undefined || empUpdate.pName == ''  || empUpdate.pPrice == undefined || empUpdate.pPrice == ''  || empUpdate.pDept == undefined || empUpdate.pDept == '')
         {
           alert("Please specify all details!!!");
         }
@@ -85,15 +84,15 @@ $scope.updateEmp = function(empUpdate){
       else{
         alert("Please enter the all details");
       }
-  
     }
     $scope.closePopup3 = function(){
      // $scope.popup.splice(chats.indexOf(chat), 1)
            $scope.popup3.close();
     }
-
-
-
+ $scope.closePopup2 = function(){
+     // $scope.popup.splice(chats.indexOf(chat), 1)
+           $scope.popup2.close();
+    }
 })
 .controller('ChatsCtrl', function($scope, Chats) {
   $scope.chats = Chats.all();
