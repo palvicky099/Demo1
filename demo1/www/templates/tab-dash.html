@@ -1,15 +1,21 @@
 <ion-view view-title="Dashboard">
-  <ion-content class="padding">
-
+     <div class="bar bar-subheader item-input-inset" >
+        <div class="item-input-wrapper">
+            <input type="text" placeholder="Search event" ng-model="query">
+        </div>
+    </div>
+  <ion-content class="padding" style="margin-top:45px">
 <div class="row" style="background-color: #ddd; border: 1px solid #ddd">
+    <div class="col">ID</div>
   <div class="col">Name</div>
-  <div class="col">Mobile</div>
-  <div class="col" >Email</div>
+  <div class="col">Product</div>
+  <div class="col" >Department</div>
 </div>
-<div class="row" ng-repeat="e in empDetails track by $index" style="border: 1px solid #ddd" ng-click="delUpdate(e)">
-  <div class="col">{{e.name}}</div>
-  <div class="col">{{e.mobile}}</div>
-  <div class="col">{{e.email}}</div>
+<div class="row" ng-repeat="e in empDetails | filter : query track by $index" style="border: 1px solid #ddd" ng-click="delUpdate(e)">
+    <div class="col">{{e.id}}</div>
+  <div class="col">{{e.pName}}</div>
+  <div class="col">{{e.pPrice}}</div>
+  <div class="col">{{e.pDept}}</div>
 </div>
 <button class="button button-block button-positive" ng-click="openAdd()">
   Add Emp
@@ -19,20 +25,24 @@
       <div class="list">
     <label class="item item-input item-stacked-label">
     <span class="input-label"> ID</span>
-    <input type="text" placeholder="John" ng-model="emp.id">
+    <input type="text" ng-model="emp.id">
   </label>
   <label class="item item-input item-stacked-label">
-    <span class="input-label"> Name</span>
-    <input type="text" placeholder="John" ng-model="emp.name">
+    <span class="input-label">Product Name</span>
+    <input type="text"  ng-model="emp.pName">
   </label>
   <label class="item item-input item-stacked-label">
-    <span class="input-label">Mobile Number</span>
-    <input type="number" placeholder="9930057558" ng-model="emp.mobile">
+    <span class="input-label">Product Price</span>
+    <input type="text"  ng-model="emp.pPrice">
   </label>
-  <label class="item item-input item-stacked-label">
+   <label class="item item-input item-stacked-label">
+    <span class="input-label">Product Department</span>
+    <input type="text"  ng-model="emp.pDept">
+  </label>
+  <!--<label class="item item-input item-stacked-label">
     <span class="input-label">Email</span>
     <input type="email" placeholder="john@suhr.com" ng-model="emp.email">
-  </label>
+  </label>-->
 </div>
 <button class="button button-block button-balanced" ng-click="addEmp(emp)">
   ADD
@@ -51,25 +61,28 @@
 <button class="button button-block button-balanced" ng-click="edit()">
   edit
 </button>
+<button class="button button-block button-assertive" ng-click="closePopup2()">
+  Cancel
+</button>
 </script>
 <!-- ******************************-->
 <script id="addPopup3.html" type="text/ng-template">
       <div class="list">
-    <label class="item item-input item-stacked-label">
+   <label class="item item-input item-stacked-label">
     <span class="input-label"> ID</span>
-    <input type="text" placeholder="John" ng-model="empUpdate.id">
+    <input type="text" ng-model="empUpdate.id">
   </label>
   <label class="item item-input item-stacked-label">
-    <span class="input-label"> Name</span>
-    <input type="text" placeholder="John" ng-model="empUpdate.name">
+    <span class="input-label">Product Name</span>
+    <input type="text"  ng-model="empUpdate.pName">
   </label>
   <label class="item item-input item-stacked-label">
-    <span class="input-label">Mobile Number</span>
-    <input type="number" placeholder="9930057558" ng-model="empUpdate.mobile">
+    <span class="input-label">Product Price</span>
+    <input type="text"  ng-model="empUpdate.pPrice">
   </label>
-  <label class="item item-input item-stacked-label">
-    <span class="input-label">Email</span>
-    <input type="email" placeholder="john@suhr.com" ng-model="empUpdate.email">
+   <label class="item item-input item-stacked-label">
+    <span class="input-label">Product Department</span>
+    <input type="text"  ng-model="empUpdate.pDept">
   </label>
 </div>
 <button class="button button-block button-balanced" ng-click="updateEmp(empUpdate)">
