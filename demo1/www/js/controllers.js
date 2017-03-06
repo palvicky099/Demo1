@@ -36,7 +36,9 @@ $scope.empDetails = [
           $scope.popup.close();
         }
       }
+      else{
         alert("Please enter the all details");
+      }
       }
   
     
@@ -93,6 +95,11 @@ $scope.updateEmp = function(empUpdate){
      // $scope.popup.splice(chats.indexOf(chat), 1)
            $scope.popup2.close();
     }
+   $scope.orderByKey = 'id';
+    $scope.orderBy = function(o){
+      $scope.orderByKey = o;
+      console.log(o);
+    }
 })
 .controller('ChatsCtrl', function($scope, Chats) {
   $scope.chats = Chats.all();
@@ -103,7 +110,8 @@ $scope.updateEmp = function(empUpdate){
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
   $scope.chat = Chats.get($stateParams.chatId);
 })
-
+.controller('pDetailsCtrl', function($scope, $stateParams, Chats) {
+})
 .controller('AccountCtrl', function($scope, $cordovaFlashlight, $cordovaImagePicker, $cordovaCamera) {
 $scope.toggle = function(){
    $cordovaFlashlight.toggle()
