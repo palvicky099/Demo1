@@ -6,12 +6,12 @@
     </div>
   <ion-content class="padding" style="margin-top:45px">
 <div class="row" style="background-color: #ddd; border: 1px solid #ddd">
-    <div class="col">ID</div>
-  <div class="col">Name</div>
-  <div class="col">Product</div>
-  <div class="col" >Department</div>
+    <div class="col" ng-click="orderBy('id')">ID</div>
+  <div class="col"  ng-click="orderBy('pName')">Name</div>
+  <div class="col"  ng-click="orderBy('pPrice')">Product</div>
+  <div class="col"  ng-click="orderBy('pDept')">Department</div>
 </div>
-<div class="row" ng-repeat="e in empDetails | filter : query track by $index" style="border: 1px solid #ddd" ng-click="delUpdate(e)">
+<div class="row" ng-repeat="e in empDetails | filter : query | orderBy:orderByKey track by $index" style="border: 1px solid #ddd" ng-click="delUpdate(e)">
     <div class="col">{{e.id}}</div>
   <div class="col">{{e.pName}}</div>
   <div class="col">{{e.pPrice}}</div>
